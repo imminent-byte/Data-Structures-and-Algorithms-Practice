@@ -8,7 +8,7 @@ void swap(int *a, int *b) {
 }
 
 void selectionSort(int arr[], int size){
-  for(int step = 0; step < size - 1; step++){
+  for(int step = 0; step < size; step++){
     int min_idx = step;
     for(int i = step + 1; i < size; i++){
       if(arr[i] < arr[min_idx]){
@@ -27,7 +27,7 @@ void printArray(int array[], int size) {
 }
 
 int main(){
-  int arr[] = {2,1,4,0,10,9};
+  int arr[] = {2,1,4,0,10,9,12,44,22};
   int size = sizeof(arr)/sizeof(arr[0]);
 
   printArray(arr, size);
