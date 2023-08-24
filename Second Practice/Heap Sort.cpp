@@ -31,10 +31,14 @@ void heapSort(int arr[], int size) {
 
 	//Heap Sort
 	for (int i = size - 1; i >= 0; i--) {
-		//Swapping root with the last elem
-		//i = size - 1 leaves the last index that is swapped everytime and then after i >= 0 is false, the array that is left is the sorted array.
+		// As we have created a Max Heap, we will swap root with last element
+		// i = size - 1 gives the last index, when swapped largest element goes to the end
+		// Then the the tree is heapified
+		// i-- will decrease i now the next largest element is swapped with the new largest element
+		// When all are swapped and i-- reaches -1 then the array left is sorted
 		swap(arr[0], arr[i]);
 
+		//i meaning size - 1 is the new size here and  0 meaning the new current element after prev is removed
 		heapify(arr, i, 0);
 	}
 }
