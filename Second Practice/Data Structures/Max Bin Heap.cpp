@@ -31,6 +31,7 @@ void insert(vector<int>& heapTree, int newNum) {
 	}
 	else {
 		heapTree.push_back(newNum);
+		//Start from the first index of non-leaf node whose index is given by size / 2 - 1
 		for (int i = size / 2 - 1; i >= 0; i--) {
 			heapify(heapTree, i);
 		}
@@ -47,6 +48,7 @@ void deleteNode(vector<int>& heapTree, int num) {
 	swap(&heapTree[i], &heapTree[size - 1]);
 
 	heapTree.pop_back();
+	//Start from the first index of non-leaf node whose index is given by size / 2 - 1
 	for (int i = size / 2 - 1; i >= 0; i--) {
 		heapify(heapTree, i);
 	}
