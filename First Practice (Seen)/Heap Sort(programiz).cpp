@@ -33,6 +33,8 @@ void heapSort(int arr[], int n) {
 
 	//Heap Sort
 	for(int i = n - 1; i >= 0; i--) {
+		//Swapping root with the last elem
+		//i = size - 1 leaves the last index that is swapped everytime and then after i <= 0, the array that is left is the sorted array.
 		swap(arr[0], arr[i]);
 
 		heapify(arr, i, 0);
