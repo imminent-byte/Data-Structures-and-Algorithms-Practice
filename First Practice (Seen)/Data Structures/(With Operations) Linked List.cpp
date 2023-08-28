@@ -61,19 +61,18 @@ void deleteNode(node** head_ref, int key) {
 		return;
 	}
 
-	//Find the key to be deleted
-	while (temp != NULL && temp->data != key) {
-		prev = temp;
-		temp = temp->next;
+	node* current = *head_ref;
+	while (current->next != NULL) {
+		if (current->next->data == key) {
+			temp = current->next;
+			current->next = current->next->next;
+			free(temp);
+			break;
+		}
+		else {
+			current = current->next;
+		}
 	}
-
-	//If the key is not present
-	if (temp == NULL) return;
-
-	//Remove the node
-	prev->next = temp->next;
-
-	free(temp);
 }
 
 bool searchNode(node** head_ref, int key) {
@@ -97,7 +96,7 @@ void sortLinkedList(node** head_ref) {
 		while (current != NULL) {
 			//index points to the node next to current
 			index = current->next;
-			
+
 			while (index != NULL) {
 				if (current->data > index->data) {
 					temp = current->data;
@@ -131,10 +130,10 @@ int main() {
 	printLinkedList(head);
 
 	cout << "\nAfter deleting an element: ";
-	deleteNode(&head, 3);
+	deleteNode(&head, 5);
 	printLinkedList(head);
 
-	int item_to_find = 3;
+	int item_to_find = 5;
 	if (searchNode(&head, item_to_find)) {
 		cout << endl << item_to_find << " is found";
 	}
