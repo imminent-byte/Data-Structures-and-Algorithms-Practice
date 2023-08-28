@@ -82,11 +82,9 @@ void deleteNode(node** head, node* deleteNode) {
 }
 
 void displayList(node* Node) {
-	node* last;
 
 	while (Node != NULL) {
 		cout << Node->data << "->";
-		last = Node;
 		Node = Node->next;
 	}
 	if (Node == NULL)
