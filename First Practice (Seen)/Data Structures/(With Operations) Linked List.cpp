@@ -53,7 +53,6 @@ void insertEnd(node** head_ref, int new_data) {
 
 void deleteNode(node** head_ref, int key) {
 	node* temp = *head_ref;
-	node* prev;
 
 	if (temp != NULL && temp->data == key) {
 		*head_ref = temp->next;
