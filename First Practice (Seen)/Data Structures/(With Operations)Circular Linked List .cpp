@@ -91,6 +91,16 @@ void display(node* head) {
 	cout << endl;
 }
 
+bool searchNode(node*& head, int key) {
+	node* current = head;
+
+	do {
+		if (current->data == key) return true;
+		current = current->next;
+	} while (current != head);
+	return false;
+}
+
 int main() {
 	node* head = NULL;
 	insertAtEnd(head, 1);
@@ -100,6 +110,13 @@ int main() {
 	display(head);
 	insertAtBeginning(head, 5);
 	display(head);
-	deletion(head, 5);
-	display(head);
+
+	int item_to_find = 4;
+	if (searchNode(head, item_to_find)) {
+		cout << endl << item_to_find << " is found";
+	}
+	else {
+		cout << endl << item_to_find << " is not found";
+	}
+
 }
