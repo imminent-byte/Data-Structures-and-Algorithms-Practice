@@ -1,8 +1,6 @@
 #include <iostream>
 using namespace std;
 
-#define bool int
-
 class node {
 public:
 	int item;
@@ -20,25 +18,23 @@ node* newNode(int item) {
 }
 
 bool checkHeightBalace(node* root, int* height) {
+	if (root == NULL)
+		return true;
+
 	int leftHeight = 0, rightHeight = 0;
 
-	int l = 0, r = 0;
+	if (checkHeightBalace(root->left, &leftHeight) == false)
+		return false;
 
-	if (root == NULL) {
-		*height = 0;
-		return 1;
-	}
+	if (checkHeightBalace(root->right, &rightHeight) == false)
+		return false;
 
-	l = checkHeightBalace(root->left, &leftHeight);
-	r = checkHeightBalace(root->right, &rightHeight);
-
-	*height = (leftHeight > rightHeight ? leftHeight : rightHeight) + 1;
-
-	if (std::abs(leftHeight - rightHeight >= 2))
-		return 0;
-
+	*height = max(leftHeight, rightHeight) + 1;
+	
+	if (abs(leftHeight - rightHeight) <= 1)
+		return true;
 	else
-		return l && r;
+		return false;
 }
 
 int main() {
