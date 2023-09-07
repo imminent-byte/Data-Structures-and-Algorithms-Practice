@@ -4,36 +4,45 @@ using namespace std;
 struct Node {
 	int data;
 	Node* next;
-	Node* prev;
 };
+
+void traverse(struct Node* last) {
+	struct Node* p;
+
+	if (last == NULL) {
+		cout << "The list is empty" << endl;
+		return;
+	}
+
+	p = last->next;
+
+	do {
+		cout << p->data << " ";
+		p = p->next;
+	} while (p != last->next);
+}
 
 typedef struct Node node;
 
 int main() {
-	node* HEAD;
-	node* one = NULL;
-	node* four = NULL;
-	node* two = NULL;
-	node* three = NULL;
-
-	one = (node*)malloc(sizeof(node));
-	four = (node*)malloc(sizeof(node));
-	two = (node*)malloc(sizeof(node));
-	three = (node*)malloc(sizeof(node));
+	node* Head;
+	node* one = new Node;
+	node* two = new Node;
+	node* three = new Node;
+	node* four = new Node;
 
 	one->data = 1;
-	four->data = 4;
 	two->data = 2;
 	three->data = 3;
+	four->data = 4;
 
 	one->next = two;
 	two->next = three;
-	three->next = one;
+	three->next = four;
+	four->next = one;
 
-	HEAD = one;
+	Head = one;
 
-	while (HEAD != NULL) {
-		cout << HEAD->data << " ";
-		HEAD = HEAD->next;
-	}
+	traverse(four);
 }
+
