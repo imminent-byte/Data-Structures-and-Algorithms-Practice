@@ -1,6 +1,5 @@
 // Prim's Algorithm in C++
 
-#include <cstring>
 #include <iostream>
 using namespace std;
 
@@ -51,6 +50,7 @@ int main() {
 		//If the vertex is already in the set S, discard it otherwise
 		//choose another vertex nearest to selected vertex at step 1.
 
+		//reseting minimum, x and y in each iteration to check new minimum again with every vertex for every edge
 		int min = INF;
 		x = 0;
 		y = 0;
@@ -58,6 +58,7 @@ int main() {
 		for (int i = 0; i < V; i++) {
 			if (selected[i]) {
 				for (int j = 0; j < V; j++) {
+					//finding smallest weight from the one selected vertex
 					if (!selected[j] && G[i][j]) { // not in selected and there is an edge
 						if (min > G[i][j]) {
 							min = G[i][j];
