@@ -40,7 +40,6 @@ void insert(vector<int>& hT, int newNum) {
 
 void deleteNode(vector<int>& hT) {
     int size = hT.size();
-    int i;
     swap(&hT[0], &hT[size - 1]);
 
     hT.pop_back();
