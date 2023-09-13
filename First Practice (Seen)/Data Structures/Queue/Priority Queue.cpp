@@ -25,7 +25,7 @@ void heapify(vector<int>& hT, int i) {
     }
 }
 
-void insert(vector<int>& hT, int newNum) {
+void Queue(vector<int>& hT, int newNum) {
     int size = hT.size();
     if (size == 0) {
         hT.push_back(newNum);
@@ -38,7 +38,7 @@ void insert(vector<int>& hT, int newNum) {
     }
 }
 
-void popElement(vector<int>& hT) {
+void enQueue(vector<int>& hT) {
     int size = hT.size();
     swap(&hT[0], &hT[size - 1]);
 
@@ -57,18 +57,18 @@ void printArray(vector<int>& hT) {
 int main() {
     vector<int> heapTree;
 
-    insert(heapTree, 3);
-    insert(heapTree, 4);
-    insert(heapTree, 9);
-    insert(heapTree, 5);
-    insert(heapTree, 2);
+    Queue(heapTree, 3);
+    Queue(heapTree, 4);
+    Queue(heapTree, 9);
+    Queue(heapTree, 5);
+    Queue(heapTree, 2);
 
     cout << "Max-Heap array: ";
     printArray(heapTree);
 
-    popElement(heapTree);
+    enQueue(heapTree);
 
-    popElement(heapTree);
+    enQueue(heapTree);
 
     cout << "After deleting an element: ";
 
