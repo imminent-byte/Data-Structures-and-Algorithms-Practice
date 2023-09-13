@@ -38,7 +38,7 @@ void insert(vector<int>& hT, int newNum) {
     }
 }
 
-void deleteNode(vector<int>& hT) {
+void popElement(vector<int>& hT) {
     int size = hT.size();
     swap(&hT[0], &hT[size - 1]);
 
@@ -66,9 +66,9 @@ int main() {
     cout << "Max-Heap array: ";
     printArray(heapTree);
 
-    deleteNode(heapTree);
+    popElement(heapTree);
 
-    deleteNode(heapTree);
+    popElement(heapTree);
 
     cout << "After deleting an element: ";
 
