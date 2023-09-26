@@ -30,7 +30,7 @@ int main() {
 			i--;
 		}
 		else {
-			cout << i << " = 1" << endl; 
+			cout << i << " = 1" << endl;
 			j = j - oW[i]; // j is subtracted with the weight of the added object so next we can choose the object that is less than or equal to the remaining weight in knapsack
 			i--;
 		}
