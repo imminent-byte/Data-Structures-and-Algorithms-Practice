@@ -11,12 +11,13 @@ int main() {
 
 	for (int i = 0; i <= n; i++) {
 		for (int ksW = 0; ksW <= m; ksW++) { // knapsack weight
-			if (i == 0 || ksW == 0)
+			if (i == 0 || ksW == 0) // if any of them is 0 meaning the value should be zero
 				k[i][ksW] = 0;
 
-			else if (oW[i] <= ksW)
+			else if (oW[i] <= ksW) // if the object weight is less than equal to the current knapsack weight
 				k[i][ksW] = max(P[i] + k[i - 1][ksW - oW[i]], k[i - 1][ksW]);
 
+			// whatever was in the previous row, IE whatever the weight was with the previous value
 			else k[i][ksW] = k[i - 1][ksW];
 		}
 	}
@@ -30,7 +31,7 @@ int main() {
 		}
 		else {
 			cout << i << " = 1" << endl; 
-			j = j - oW[i];
+			j = j - oW[i]; // j is subtracted with the weight of the added object so next we can choose the object that is less than or equal to the remaining weight in knapsack
 			i--;
 		}
 	}
