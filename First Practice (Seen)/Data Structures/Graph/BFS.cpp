@@ -55,14 +55,35 @@ void Graph::BFS(int startVertex) {
 	cout << endl;
 }
 
-int main() {
-	Graph g(4);
-	g.addEdge(0, 1);
-	g.addEdge(0, 2);
+void test1() {
+	cout << "//TEST 1//" << endl;
+	Graph g(8);
+	g.addEdge(1, 5);
+	g.addEdge(1, 4);
 	g.addEdge(1, 2);
-	g.addEdge(2, 0);
+	g.addEdge(2, 7);
+	g.addEdge(2, 6);
 	g.addEdge(2, 3);
-	g.addEdge(3, 3);
 
-	g.BFS(2);
+	g.BFS(1);
+	cout << endl;
+}
+
+void test2() {
+	cout << "//TEST 2//" << endl;
+	Graph g(8);
+	g.addEdge(1, 2);
+	g.addEdge(1, 3);
+	g.addEdge(2, 4);
+	g.addEdge(2, 5);
+	g.addEdge(3, 6);
+	g.addEdge(3, 7);
+
+	g.BFS(1);
+	cout << endl;
+}
+
+int main() {
+	test1();
+	test2();
 }
